@@ -68,14 +68,11 @@ $(function() {
          * a single .entry element within the .feed container.
          */
          beforeEach(function(done) {
-           loadFeed(0, function() {
-             done();
-           });
+           loadFeed(0, done);
          });
 
          it('At least one entry within the feed container', function() {
-           expect($('.entry')).toBeDefined();
-           expect($('.entry').length).toBeGreaterThan(0);
+           expect($('.feed .entry').length).toBeGreaterThan(0);
          })
     });
 
@@ -95,11 +92,6 @@ $(function() {
                done();
             });
            });
-         });
-
-         //To reload first entry
-         afterEach(function() {
-           loadFeed(0);
          });
 
          it('content changes', function() {
